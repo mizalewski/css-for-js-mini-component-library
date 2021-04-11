@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   border-radius: var(--borderRadius);
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0 2px 4px ${COLORS.transparentGray35};
+  overflow: hidden;
 `
 
 const Progress = styled.div`
