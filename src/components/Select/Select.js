@@ -7,7 +7,7 @@ import { COLORS } from "../../constants";
 const SelectIcon = () => {
   return (
     <svg
-      style={{marginLeft: -32}}
+      style={{marginLeft: -32, pointerEvents: 'none'}}
       width="14"
       height="8"
       viewBox="0 0 14 8"
