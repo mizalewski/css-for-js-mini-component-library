@@ -8,13 +8,13 @@ import VisuallyHidden from '../VisuallyHidden';
 
 const STYLES = {
   'small': {
-    iconSize: 12,
-    fontSize: '14px',
+    iconSize: 16,
+    fontSize: 14 / 16 + 'rem',
     inputPaddingLeft: '16px'
   },
   'large': {
-    iconSize: 18,
-    fontSize: '18px',
+    iconSize: 24,
+    fontSize: 18 / 16 + 'rem',
     inputPaddingLeft: '24px'
   }
 }
@@ -31,6 +31,7 @@ const StyledInput = styled.input`
   color: currentColor;
   
   &:placeholder-shown {
+    font-weight: 400;
     color: ${COLORS.gray500};
   }
   
@@ -54,7 +55,10 @@ const Wrapper = styled.div`
 const IconWrapper = styled.div`
   pointer-events: none;
   position: absolute;
-  bottom: 5px;
+  bottom: 0;
+  top: 0;
+  margin: auto 0;
+  height: var(--size);
 `
 
 const IconInput = ({
@@ -63,13 +67,14 @@ const IconInput = ({
   width = 250,
   size,
   placeholder,
+  ...delegated
 }) => {
   const style = STYLES[size]
 
   return <Wrapper style={{'--width': `${width}px`, '--font-size': style.fontSize}}>
     <VisuallyHidden>{label}</VisuallyHidden>
-    <StyledInput placeholder={placeholder} style={{'--padding-left': style.inputPaddingLeft}} />
-    <IconWrapper>
+    <StyledInput placeholder={placeholder} style={{'--padding-left': style.inputPaddingLeft}} {...delegated} />
+    <IconWrapper style={{'--size': `${style.iconSize}px`}}>
       <Icon id={icon} size={style.iconSize} />
     </IconWrapper>
   </Wrapper>
